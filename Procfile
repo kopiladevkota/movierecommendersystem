@@ -1,0 +1,1 @@
+web: sh setup.sh && st reamlit run app.py
