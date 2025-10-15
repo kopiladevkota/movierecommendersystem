@@ -2,10 +2,23 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
-
+import gdown
+import os
 # =============================
 # Fetch Poster Function
+
 # =============================
+similarity_file = "similarity.pkl"
+similarity_drive_id = "1LOOfclrKgEXD10kJ9duHHH0Dui5MOk9d"  # Replace with your file ID
+
+if not os.path.exists(similarity_file):
+    gdown.download(f"https://drive.google.com/uc?id={similarity_drive_id}", similarity_file, quiet=False)
+
+# =============================
+# Load Data
+# =============================
+
+
 def fetch_poster(movie_id):
     response = requests.get(
         f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=3e69dcf8d612f456577678b3eb902b32&language=en-US'
